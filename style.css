@@ -1,0 +1,119 @@
+.wrapper{
+	width :750;
+	height :800;
+}
+
+
+.controller{
+	
+	width : 150px;
+	height: 800px;
+	background-color: rgb(200,200,200);
+	float: left;
+}
+
+#preview{
+	width:600;
+	height:800;
+	background-color: rgb(100,100,100);
+	float: right;
+}
+
+.title{
+	width:750;
+	height:30;
+	background-color: rgb(220,220,220);
+	text-align: center;
+	padding-top: 5px;
+
+}
+
+.inputFields{
+	margin: 5px;
+	background-color: rgb(150,150,150);
+	float: left;
+	padding: 5px;
+	padding-top: 5px;
+	align-content: left;
+}
+
+.inputFields1{
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	background-color: rgb(150,150,150);
+	float: left;
+	padding: 5px;
+
+	align-content: left;
+}
+
+.js-textareacopybtn{
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 15px;
+	padding :10px;
+}
+
+
+#textAreaGcode{
+
+	width:750px;
+	height : 100px;
+	background-color: rgb(230,230,230);
+}
+
+
+#buttonStartAnim{
+	margin-left: 5px;
+	margin-top: 10px;
+	float: left;
+	text-align: center;
+	padding: 5;
+
+
+}
+#buttonPauseAnim{
+	margin-right: 5px;
+	margin-top: 10px;
+	float: right;
+	text-align: center;
+	padding: 5;
+}
+
+#OriginX{
+	float:right;
+}
+
+#OriginY{
+	float:right;
+}
+
+
+#valueOutput1{
+	float: right;
+}
+#valueOutput2{
+	float: right;
+}
+#valueOutput3{
+	float: right;
+}
+#valueOutput4{
+	float: right;
+}
+#valueOutput5{
+	float: right;
+}
+#valueOutput6{
+	float: right;
+}
+#valueOutput7{
+	float: right;
+}
+#valueOutput8{
+	float: right;
+}
+#valueOutput9{
+	float: right;
+}

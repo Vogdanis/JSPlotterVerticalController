@@ -1,0 +1,217 @@
+<html>
+
+	 <head> 
+	 	<title>DrawInterface</title>
+	 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js">
+	 	</script>
+	 	
+	 	<link rel="stylesheet" type="text/css" href="style.css">
+	</head> 
+<body>
+<div class="title"><b>Graphics Generator 0.1</b></div>
+<div class="wrapper">
+	<div class="controller">
+
+		
+		<div class="inputFields1">
+			OriginX <div id="OriginX">300</div>
+			<input type="range" id="myRange" value="300" min="200" max="400" onchange="outputSliderValue(this, 'OriginX')"> 
+		</div>
+
+		<div class="inputFields1">
+			OriginY <div id="OriginY">400</div>
+			<input type="range" id="myRange0" value="400" min="300" max="500" onchange="outputSliderValue(this, 'OriginY')"> 
+		</div>
+
+
+
+		<div class="inputFields1">
+			Length1 <div id="valueOutput1">50</div>
+			<input type="range" id="myRange1" value="50" min="0" max="100" onchange="outputSliderValue(this, 'arm1Len')"> 
+		</div>
+
+		
+		<div class="inputFields">
+			Length2<div id="valueOutput2">50</div>
+			<input type="range" id="myRange2" value="50" min="0" max="100" onchange="outputSliderValue(this, 'arm2Len')"> 
+		</div>
+
+
+		<div class="inputFields">
+			Length3<div id="valueOutput3">50</div>
+			<input type="range" id="myRange3" value="50" min="0" max="100" onchange="outputSliderValue(this, 'arm3Len')"> 
+		</div>
+
+
+		<div class="inputFields">
+			AngleMult1 <div id="valueOutput4">0</div>
+			<input type="range" id="myRange4" value="1" min="1" max="25" onchange="outputSliderValue(this, 'angleMult1')"> 
+		</div>
+
+
+		<div class="inputFields">
+			AngleMult2 <div id="valueOutput5">0</div>
+			<input type="range" id="myRange5" value="1" min="1" max="25" onchange="outputSliderValue(this, 'angleMult2')"> 
+		</div>
+
+
+
+		<div class="inputFields">
+			AngleMult3 <div id="valueOutput6">0</div>
+			<input type="range" id="myRange6" value="1" min="1" max="25" onchange="outputSliderValue(this, 'angleMult3')"> 
+		</div>
+
+
+
+		<div class="inputFields">
+			Angle1<div id="valueOutput7">0</div>
+			<input type="range" id="myRange7" value="1" min="1" max="15" onchange="outputSliderValue(this, 'Angle1')"> 
+		</div>
+
+
+
+		<div class="inputFields">
+			Angle2<div id="valueOutput8">0</div>
+			<input type="range" id="myRange8" value="1" min="1" max="15" onchange="outputSliderValue(this, 'Angle2')"> 
+		</div>
+
+
+		<div class="inputFields">
+			Angle3 <div id="valueOutput9">0</div>
+			<input type="range" id="myRange9" value="1" min="1" max="15" onchange="outputSliderValue(this, 'Angle3')"> 
+		</div>
+
+
+
+		<div class="ButtonPositionDiv">
+			<input id="buttonStartAnim" type="button" value="Start Machine">
+			<script type="text/javascript">
+				var btn = document.getElementById('buttonStartAnim');
+				btn.addEventListener('click', updateBtn);
+				function updateBtn() {
+				  if (btn.value === 'Start Machine') {
+				    btn.value = 'Stop Machine';
+				    startAnimation = true;
+				  } else {
+				    btn.value = 'Start Machine';
+				    startAnimation = false;
+				  }
+				}
+			</script>
+		
+
+
+
+			<input id="buttonPauseAnim" type="button" value="Pause" >
+			<script type="text/javascript">
+				var btn1 = document.getElementById('buttonPauseAnim');
+				btn1.addEventListener('click', updateBtn1);
+				function updateBtn1() {
+				  if (btn1.value === 'Pause') {
+				    btn1.value = 'Resume';
+				    //btn.innerHTML = 'Resume';
+				    PauseAnimation = true;
+				  } else {
+				    btn1.value = 'Pause';
+				    //btn.innerHTML = 'Pause';
+				    PauseAnimation = false;
+				  }
+				}
+			</script>
+		</div>
+
+
+		<div class="gcodeDiv">
+ 			<button class="js-textareacopybtn">CopyGcode to Clipboard</button>
+		</div>
+		
+
+
+	</div>
+	<div id="preview"> 
+
+	</div>
+</div>
+
+<div class="gcode">
+			<textarea class="js-copytextarea" id="textAreaGcode" rows="1" cols="15"></textarea>
+		</div>
+
+<script type = "text/javascript" src = "PendulToGcodeJS.js"></script>
+
+<script type="text/javascript">
+			function outputSliderValue(e, par) {
+				
+				if(par === 'OriginX') {
+					OriginX = e.value;
+					document.getElementById("OriginX").innerHTML = e.value;
+				}
+				if(par === 'OriginY') {
+					OriginY = e.value;
+					document.getElementById("OriginY").innerHTML = e.value;
+				}
+
+
+
+				if(par === 'arm1Len') {
+					arm1Len = e.value;
+					document.getElementById("valueOutput1").innerHTML = e.value;
+				}
+				if(par === 'arm2Len') {
+					arm2Len = e.value;
+					document.getElementById("valueOutput2").innerHTML = e.value;
+				}
+				if(par === 'arm3Len') {
+					arm3Len = e.value;
+					document.getElementById("valueOutput3").innerHTML = e.value;
+				}
+				if(par === 'angleMult1') {
+					angleMult1 = e.value/10;
+					document.getElementById("valueOutput4").innerHTML = e.value/10;
+				}
+				if(par === 'angleMult2') {
+					angleMult2 = e.value/10;
+					document.getElementById("valueOutput5").innerHTML = e.value/10;
+				}
+				if(par === 'angleMult3') {
+					angleMult3 = e.value/10;
+					document.getElementById("valueOutput6").innerHTML = e.value/10;
+				}
+				if(par === 'Angle1') {
+					angle = e.value/10;
+					document.getElementById("valueOutput7").innerHTML = e.value/10;
+				}
+				if(par === 'Angle2') {
+					angle1 = e.value/10;
+					document.getElementById("valueOutput8").innerHTML = e.value/10;
+				}
+				if(par === 'Angle3') {
+					angle2 = e.value/10;
+					document.getElementById("valueOutput9").innerHTML = e.value/10;
+				}
+			}
+</script>
+
+
+<script type="text/javascript">
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
+
+</body>
+
+
+
+</html>
